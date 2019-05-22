@@ -15,7 +15,11 @@ export class IdeaService {
   }
 
   async showAll() {
-     return await this.ideaRepository.find({relations: ['author']});
+     return await this.ideaRepository.find({relations: ['author'],
+      //  take: 25,
+      // skip: 25 * (page - 1),
+      // order: newest && { created: 'DESC' },    Phân trang
+     } );
     // const ideas = await this.ideaRepository.find({relations: ['author']});
     // return ideas.map(idea => this.toResponseObject(idea));
     //return await this.ideaRepository.find({relations: ['author']});

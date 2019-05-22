@@ -20,7 +20,9 @@ export class UserService {
         'Sai TK/MK', HttpStatus.BAD_REQUEST,
       );
     }
-    return user.toResponseObject();
+    return new Promise( resolve => {
+       resolve(user);
+    });
   }
   async register(data: UserDto): Promise<UserRO> {
     const { username } = data;
